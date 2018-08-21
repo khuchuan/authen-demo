@@ -51,11 +51,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<h3>Register</h3>
 				
 				<div class="login-form">
-					<form action="/signup" method="post">
-						<input type="text" name="email" placeholder="E-mail" required="">
-						<input type="text" name="username" placeholder="Username" required="">
-						<input type="password" name="password" placeholder="Password" required="">
-						<input type="password" name="passwordConf" placeholder="Confirm Password" required="">
+					<form>
+						<input type="text" id="email" name="email" placeholder="E-mail" required="">
+						<input type="text" id="username" name="username" placeholder="Username" required="">
+						<input type="password" id="password" name="password" placeholder="Password" required="">
+						<input type="password" id="passwordConf" name="passwordConf" placeholder="Confirm Password" required="">
 						<input type="submit" id="btnRegister" value="REGISTER">
 					</form>
 				</div>
@@ -70,7 +70,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>		
 	
 	<script type="text/javascript">
+
+	$('#btnRegister').click(function(){
+		var userInfo = { email: $('#email').val(), username: $('#username'), password: $('#password') } ;
+
+		$.ajax({
+			type: 'post',
+			url: '/register',
+			data: JSON.stringify(userInfo),
+			contentType: "application/json; charset=utf-8",
+			success: alert('ok conde'),
+			f
+		})
+
+	});
+
 	
+
 
 	</script>
 	

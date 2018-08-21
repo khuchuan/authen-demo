@@ -14,15 +14,16 @@ mongoose.connect('mongodb://localhost/todoapps', function(err){
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
-app.post('/signup', function(req, res, next){
+app.post('/register', function(req, res, next){
     if ( req.body.username || req.body.email || req.body.password || req.body.passwordConf)    {
         console.log('Vui long nhap du tham so');
         next();
     }
 
     // Check pass and passConf
-    if (req.body.password != req.body.passwordConf)    {
+    if (req.body.password != req.body.passwordConf)    {        
         console.log('Password khong khop');
+        res.send('Password confirm khong khop');
         return;
     }
     
