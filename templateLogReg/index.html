@@ -37,8 +37,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				
 				<div class="login-form">
 					<form action="/" method="post">
-						<input type="text" name="logemail" placeholder="E-mail" required="">
-						<input type="password" name="logpassword" placeholder="Password" required="">
+						<input type="text" name="logemail" placeholder="E-mail" required="" autocomplete="new-password" >
+						<input type="password" name="logpassword" placeholder="Password" required="" autocomplete="new-password" >
 						<div class="tp">
 							<input type="submit" value="LOGIN NOW">
 						</div>
@@ -52,10 +52,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				
 				<div class="login-form">
 					<form>
-						<input type="text" id="email" name="email" placeholder="E-mail" required="" value="khuchuan@gmail.com">
-						<input type="text" id="username" name="username" placeholder="Username" required="" value="khuchuan">
-						<input type="password" id="password" name="password" placeholder="Password" required="" value="123">
-						<!-- <input type="password" id="passwordConf" name="passwordConf" placeholder="Confirm Password" required=""> -->
+						<input type="text" id="email" name="email" placeholder="E-mail" required="" >
+						<input type="text" id="username" name="username" placeholder="Username" required="" >
+						<input type="password" id="password" name="password" placeholder="Password" required="" >
+						<input type="password" id="passwordConf" name="passwordConf" placeholder="Confirm Password" required="">
 						<input type="submit" id="btnRegister" value="REGISTER">
 					</form>
 				</div>
@@ -71,13 +71,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 	<script type="text/javascript">
 	$('#btnRegister').click(function(e){		
-		e.preventDefault();
-		console.log('select_link clicked');
+		e.preventDefault();		
 
-		// if ( $('#password').val() != $("#passwordConf").val()){
-		// 	alert("Password confirm not match.");
-		// 	return;
-		// }
+		if ( $('#password').val() != $("#passwordConf").val()){
+			alert("Password confirm not match.");
+			return;
+		}
+
 		var params = {};
 		params.email = $('#email').val();
 		params.username = $('#username').val();
@@ -90,7 +90,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			contentType: 'application/json',
 			success: function(data) {
 				alert('ok con de: ' + data + ' \ ' + JSON.stringify(data));				
-				window.location.href = '/alert';
+				return;
+				// window.location.href = '/task';
 			},
 			error: function (err) {				
 				alert('Loi roi: ' +  JSON.stringify( err));

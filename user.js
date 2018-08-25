@@ -37,24 +37,6 @@ userSchema.statics.authenticate = function (email, password, callback){
                 return callback();
             }
         })
-        
-        
-
-        // bcrypt.hash(password, 10, function (err, hash) {
-        //     if (err) {
-        //       return callback(err);
-        //     }
-
-        //     console.log('hash: ' + hash )
-        //     console.log('password: ' + user.password);
-
-        //     bcrypt.compare(hash, user.password, function(err, result){
-        //         if (result === true)     
-        //             return callback(null, user);
-        //         else    
-        //             return callback();
-        //     })
-        // });       
     });
 };
 

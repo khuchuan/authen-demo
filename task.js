@@ -1,21 +1,19 @@
 var mongoose = require('mongoose');
 
-var TaskSchema = new mongoose.Schema({
-    userid: {
+var TaskSchema = mongoose.Schema({
+    Userid: {
         type: mongoose.Schema.Types.ObjectId,
         required: true
     },
-    task: {
+    Task: {
         type: String,
         required: true
     },
     CreateTime: Date,
-    Status: boolean    
+    Status: Boolean    
 })
 
 // Add task
-
-
 
 var Task = mongoose.model("Task", TaskSchema) ;
 module.exports = Task;
