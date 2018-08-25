@@ -16,11 +16,10 @@ router.get('/get', function(req, res){
     console.log('session id get: ' + req.session.id );
     sess = req.session;
     if (sess.username)
-        res.end("Exits session. Usernamme: " + sess.username);
+        res.end("Exits session. Username: " + sess.username);
     else
         res.end("KHong ton tai session: " + sess.username);
 });
-
 
 router.get('/', function(req, res){
     res.sendFile (path.join(__dirname + '/templateLogReg/index.html'));
