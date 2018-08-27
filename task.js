@@ -13,7 +13,5 @@ var TaskSchema = mongoose.Schema({
     Status: Boolean    
 })
 
-// Add task
-
 var Task = mongoose.model("Task", TaskSchema) ;
 module.exports = Task;

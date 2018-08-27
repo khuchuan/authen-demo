@@ -9,25 +9,19 @@
         <h2> A Simple ToDo List App </h2>
 
         <form action="/addtask" method="POST">
-
             <input type="text" name="newtask" placeholder="add new task">
             <button> Add Task </button>
-
-            <h2> Added Task </h2>
-
-            <% for( var i = 0; i < task.length; i++){ %>
-                <li><input type="checkbox" name="check" value="<%= task[i]._id %>" /> <%= task[i].Task %>
-                </li>
-            <% } %>
-
-            <button formaction="/removetask" type="submit" id="top"> Remove </button>
-
-        </form>
-
-
+            <h2> List Task </h2>
+        </form><br/>
+        
+        <% for( var i = 0; i < task.length; i++){ %>
+            <input type="checkbox" checked="<%= task[i].Status %>" /> &nbsp;&nbsp;
+            <%= task[i].Task %>&nbsp;&nbsp;
+            <a href="http://localhost:3000/removetask/<%= task[i]._id %>"> Remove </a>
+            <br/>
+        <% } %>
 
     </div>
-
 </body>
 
 </html>
